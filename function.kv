@@ -34,19 +34,23 @@
         anchor_y: 'center'
         BoxLayout:
             orientation: 'vertical'
-            size_hint: 0.6, 0.4
+            size_hint: 0.6, 0.6
+            Label:
+                text: 'Введите координаты через пробел'
+                color: 'white'
             TextInput:
                 id:txt
                 text: ''
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                multiline: False
             Button:
                 text: 'Draw'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
-                on_press: root.manager.current = 'line'
+                on_press: root.change()
             Button:
                 text: 'Back'
                 halign: 'center'
@@ -60,5 +64,4 @@
 #    canvas:
 #        Line:
 #            pos: 1,1
-
 
