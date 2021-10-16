@@ -9,9 +9,9 @@ from kivy.graphics import Line
 
 
 class Straight(Widget):
-    def __init__(self, **kwargs):
+    def __init__(self, x1, y1, x2, y2, **kwargs):
         super().__init__(**kwargs)
-        self.line = Line(points=[10, 0, 6, 10]) #x1,y1,x2,y2
+        self.line = Line(points=[x1, y1, x2, y2])
         self.canvas.add(self.line)
 
 
@@ -20,14 +20,28 @@ class MenuScreen(Screen):
 
 
 class LinearFunction(Screen):
-    pass
+    sm = ScreenManager()
+    txt = ObjectProperty()
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.variables = [0,0,0,0] # y = kx + b
+
+    def change(self):
+        self.variables = list(self.txt.text.split())
+        db = open('db.txt', 'w')
+        db.write(self.txt.text)
+        db.close()
+        App.get_running_app().root.current = 'line'
 
 
 class DrawLinearFunctionScreen(Screen):
 
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.straight_line = Straight()
+        db = open('db.txt', 'r')
+        coords = list(db.read().split())
+        self.straight_line = Straight(float(coords[0]), float(coords[1]), float(coords[2]), float(coords[3]))
         self.add_widget(self.straight_line)
 
 
