@@ -4,16 +4,20 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 
 
-class MainContainer(BoxLayout):
-    pass
-
 class MenuScreen(Screen):
     pass
+
+
+class LinearFunction(Screen):
+    pass
+
+
 
 class FunctionApp(App):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(MenuScreen(name='menu'))
+        sm.add_widget(LinearFunction(name='linear_function'))
         Window.size = (700,500)
         return sm
 
