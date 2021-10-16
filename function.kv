@@ -2,6 +2,7 @@
 
 
 <MenuScreen@Screen>:
+    text1:text1
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'center'
@@ -9,23 +10,25 @@
             orientation: 'vertical'
             size_hint: 0.6, 0.4
             Button:
-                text: 'Линейная функция'
+                id:text1
+                text: 'Linear function'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
                 on_press: root.manager.current = 'linear_function'
             Button:
-                text: 'Квадратичная функция'
+                text: 'Square function'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
             Button:
-                text: 'Обратная пропорцианальность'
+                text: 'inverse proportion'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
 
 <LinearFunction@Screen>:
+    txt:txt
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'center'
@@ -33,20 +36,29 @@
             orientation: 'vertical'
             size_hint: 0.6, 0.4
             TextInput:
+                id:txt
                 text: ''
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
             Button:
-                text: 'Отрисовать'
+                text: 'Draw'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                on_press: root.manager.current = 'line'
             Button:
-                text: 'Назад'
+                text: 'Back'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
                 on_press: root.manager.current = 'menu'
+
+
+
+#<Straight>:
+#    canvas:
+#        Line:
+#            pos: 1,1
 
 
