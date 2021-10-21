@@ -36,7 +36,7 @@
             orientation: 'vertical'
             size_hint: 0.6, 0.6
             Label:
-                text: 'Введите координаты через пробел'
+                text: 'Give me k and b variables'
                 color: 'white'
             TextInput:
                 id:txt
@@ -58,10 +58,12 @@
                 size_hint: 1, 0.3
                 on_press: root.manager.current = 'menu'
 
-
-
-#<Straight>:
-#    canvas:
-#        Line:
-#            pos: 1,1
+<DrawLinearFunctionScreen@Screen>:
+    drawButton:drawButton
+    Button:
+        id: drawButton
+        text: 'Click on the screen to draw function'
+        on_press: root.drawingWindow()
+        background_normal: ''
+        background_color: 0,0,0
 
