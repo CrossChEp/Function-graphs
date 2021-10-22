@@ -9,7 +9,11 @@ from kivy.properties import NumericProperty, ReferenceListProperty, ObjectProper
 from kivy.graphics import Line, Color
 from typing import Final
 from kivy.utils import rgba
-from classes import straight, menu_screen, lin_function, draw_linear_function
+from kivymd.app import MDApp
+from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.tab import MDTabsBase
+from kivymd.icon_definitions import md_icons
+from classes import straight, menu_screen, lin_function, draw_linear_function, sq_function, draw_square_function
 
 
 class FunctionApp(App):
@@ -19,7 +23,9 @@ class FunctionApp(App):
         sm = ScreenManager()
         sm.add_widget(menu_screen.MenuScreen(name='menu'))
         sm.add_widget(lin_function.LinearFunction(name='linear_function'))
+        sm.add_widget(sq_function.SquareFunction(name='square_function'))
         sm.add_widget(draw_linear_function.DrawLinearFunctionScreen(name='line'))
+        sm.add_widget(draw_square_function.DrawSquareFunction(name='parabola'))
         Window.size = (700, 500)
         return sm
 
