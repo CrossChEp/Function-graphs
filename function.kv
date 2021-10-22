@@ -21,6 +21,7 @@
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
+                on_press: root.manager.current = 'square_function'
             Button:
                 text: 'inverse proportion'
                 halign: 'center'
@@ -58,6 +59,37 @@
                 size_hint: 1, 0.3
                 on_press: root.manager.current = 'menu'
 
+<SquareFunction@Screen>:
+    txt:txt
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.6, 0.6
+            Label:
+                text: 'Give me a b and c variables'
+                color: 'white'
+            TextInput:
+                id:txt
+                text: ''
+                halign: 'center'
+                valign: 'center'
+                size_hint: 1, 0.3
+                multiline: False
+            Button:
+                text: 'Draw'
+                halign: 'center'
+                valign: 'center'
+                size_hint: 1, 0.3
+                on_press: root.change()
+            Button:
+                text: 'Back'
+                halign: 'center'
+                valign: 'center'
+                size_hint: 1, 0.3
+                on_press: root.manager.current = 'menu'
+
 <DrawLinearFunctionScreen@Screen>:
     drawButton:drawButton
     Button:
@@ -67,3 +99,12 @@
         background_normal: ''
         background_color: 0,0,0
 
+<DrawSquareFunction@Screen>:
+    drawButton:drawButton
+    Button:
+        id: drawButton
+        text: 'Click on the screen to draw function'
+        #on_press: root.drawingWindow()
+        background_normal: ''
+        background_color: 0,0,0
+        on_press: root.drawingSquareWindow()
