@@ -9,24 +9,37 @@
         BoxLayout:
             orientation: 'vertical'
             size_hint: 0.6, 0.4
-            Button:
+            MDRectangleFlatButton:
                 id:text1
                 text: 'Linear function'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.manager.current = 'linear_function'
-            Button:
-                text: 'Square function'
+            BoxLayout:
+                size_hint: 0.6, 0.2
+            MDRectangleFlatButton:
+                text: 'Square function(works incorrectly)'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.manager.current = 'square_function'
-            Button:
-                text: 'inverse proportion'
+            BoxLayout:
+                size_hint: 0.6, 0.2
+            MDRectangleFlatButton:
+                text: 'inverse proportion(doesnt work yet)'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 1
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
 
 <LinearFunction@Screen>:
     txt:txt
@@ -39,24 +52,34 @@
             Label:
                 text: 'Give me k and b variables'
                 color: 'white'
-            TextInput:
+            MDTextField:
                 id:txt
                 text: ''
                 halign: 'center'
                 valign: 'center'
-                size_hint: 1, 0.3
+                size_hint: 1, None
                 multiline: False
-            Button:
+            BoxLayout:
+                size_hint: 0.6, 0.1
+            MDRectangleFlatButton:
                 text: 'Draw'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.change()
-            Button:
+            BoxLayout:
+                size_hint: 0.6, 0.1
+            MDRectangleFlatButton:
                 text: 'Back'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.manager.current = 'menu'
 
 <SquareFunction@Screen>:
@@ -70,24 +93,34 @@
             Label:
                 text: 'Give me a b and c variables'
                 color: 'white'
-            TextInput:
+            MDTextField:
                 id:txt
                 text: ''
                 halign: 'center'
                 valign: 'center'
-                size_hint: 1, 0.3
+                size_hint: 1, None
                 multiline: False
-            Button:
+            BoxLayout:
+                size_hint: 0.6, 0.1
+            MDRectangleFlatButton:
                 text: 'Draw'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.change()
-            Button:
+            BoxLayout:
+                size_hint: 0.6, 0.1
+            MDRectangleFlatButton:
                 text: 'Back'
                 halign: 'center'
                 valign: 'center'
                 size_hint: 1, 0.3
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                line_color: 1, 1, 1, 1
                 on_press: root.manager.current = 'menu'
 
 <DrawLinearFunctionScreen@Screen>:
