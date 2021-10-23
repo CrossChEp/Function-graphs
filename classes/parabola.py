@@ -24,13 +24,13 @@ class Parabola(Widget):
         b = int(coords[1])
         c = int(coords[2])
         with self.canvas:
-
+            Color(1, 1, 1)
             self.y_axis = Line(points=[350, 1000, 350, 0], width=2)  # отрисовка оси абцисс
             self.x_axis = Line(points=[0, 220, 1000, 220], width=2)  # отрисовка оси ординат
             self.unit_segment_x_negative = Line(points=[300, 260, 300, 180])  # отрисовка 1-го единичного отрезка, где x < 0
             self.unit_segment_x_positive = Line(points=[400, 260, 400, 180])  # отрисовка 1-го единичного отрезка, где x > 0
 
-            x_v = -b / 2 * a  # x вершины
+            x_v = x_v = -b / (2 * a)  # x вершины
             y_v = a * x_v ** 2 + b * x_v + c  # y вершины
             x_v *= ed  # конвертируем в пиксели
             y_v *= ed
@@ -48,7 +48,7 @@ class Parabola(Widget):
                 # Убывает
                 for x in range(int(x_v), high):
                     for y in range(int(y_v), high):
-                        self.line = Ellipse(pos=(x,y))
+                        self.line = Ellipse(pos=(x,y), size=(4, 4))
                         y_v += 1
                         x_v += 1
                         break
