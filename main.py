@@ -16,10 +16,11 @@ from kivymd.icon_definitions import md_icons
 from classes import straight, menu_screen, lin_function, draw_linear_function, sq_function, draw_square_function
 
 
-class FunctionApp(App):
+class FunctionApp(MDApp):
     txt = ObjectProperty()
 
     def build(self):
+        self.theme_cls.theme_style = "Dark"
         sm = ScreenManager()
         sm.add_widget(menu_screen.MenuScreen(name='menu'))
         sm.add_widget(lin_function.LinearFunction(name='linear_function'))
