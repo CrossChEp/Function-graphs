@@ -30,25 +30,20 @@ class Parabola(Widget):
             self.unit_segment_x_negative = Line(points=[300, 260, 300, 180])  # отрисовка 1-го единичного отрезка, где x < 0
             self.unit_segment_x_positive = Line(points=[400, 260, 400, 180])  # отрисовка 1-го единичного отрезка, где x > 0
 
-            x_v = x_v = -b / (2 * a)  # x вершины
-            y_v = a * x_v ** 2 + b * x_v + c  # y вершины
+            self.parab = Line(poins=[-1600, a * -1600 ** 2 + b * -1600 + c], width=2)
+            x_v = -b / (2 * a)  # x вершины
+            y_v = (a * x_v) ** 2 + b * x_v + c  # y вершины
             x_v *= ed  # конвертируем в пиксели
             y_v *= ed
             low = -1600  # минимальная точка
             high = 1600  # максимальная точка
 
             # отрисовка пораболы
-            if a < 0:
-                # Возрастает
-                for x in range(low, int(x_v)):
-                    for y in range(low, int(y_v)):
-                        self.line = Ellipse(pos=(x,y))
-                        low -= 1
-                        break
-                # Убывает
-                for x in range(int(x_v), high):
-                    for y in range(int(y_v), high):
-                        self.line = Ellipse(pos=(x,y), size=(4, 4))
-                        y_v += 1
-                        x_v += 1
-                        break
+            for x in range(low, int(x_v)):
+                y1 = a * x ** 2 + b * x + c
+                self.parab.points += [x + 350, y1 + 220]
+
+            for x in range(int(x_v), high):
+                y1 = a * x ** 2 + b * x + c
+                self.parab.points += [x + 350, y1 + 220]
+
