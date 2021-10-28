@@ -31,10 +31,10 @@ class Hyperbola(Widget):
             self.unit_segment_x_positive = Line(points=[400, 260, 400, 180])  # отрисовка 1-го единичного отрезка, где x > 0
             self.hyperb = Line(points=[x, k/x], width=2)
             for x in range(1, 1600):
-                y1 = k/x
+                y1 = k/x * ed
                 self.hyperb.points += [x + 350, y1 + 220]
 
             for x in range(-1600, -1):
-                y1 = k/x
+                y1 = k/x * ed
                 self.hyperb.points += [x + 350, y1 + 220]
 
